@@ -1,0 +1,17 @@
+{
+    "name": "zacharyrankin/just-test",
+    "description": "minimalistic tap-producing testing framework",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Zachary Rankin",
+            "email": "rankin.zachary@gmail.com"
+        }
+    ],
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "just_test\\": "src"
+        }
+    }
+}
