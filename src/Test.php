@@ -257,6 +257,9 @@ MORE;
             return;
         }
 
+        $error_handler = new ErrorHandler;
+        $error_handler->register();
+
         register_shutdown_function(
             function () {
                 echo "\n";
