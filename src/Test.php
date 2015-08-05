@@ -290,6 +290,10 @@ MORE;
             return 'null';
         }
 
+        if (is_array($value)) {
+            return json_encode($value);
+        }
+
         return $value;
     }
 }
