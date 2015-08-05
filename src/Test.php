@@ -1,5 +1,5 @@
 <?php
-namespace just_test;
+namespace zacharyrankin\just_test;
 
 use Exception;
 use InvalidArgumentException;

@@ -1,6 +1,6 @@
 <?php
 
-use just_test\Test;
+use zacharyrankin\just_test\Test;
 
 require_once __DIR__ . '/../vendor/autoload.php';
 
