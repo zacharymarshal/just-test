@@ -27,34 +27,6 @@ class Test
     /**
      *
      */
-    public static function init()
-    {
-        if (self::$initialized) {
-            return;
-        }
-
-        register_shutdown_function(
-            function () {
-                echo "\n";
-                echo "1.." . self::$number . "\n";
-                echo "# tests " . self::$number . "\n";
-                echo "# pass  " . self::$passed . "\n";
-                if (self::$failed > 0) {
-                    echo "# fail  " . self::$failed . "\n\n";
-                } else {
-                    echo "\n# ok\n\n";
-                }
-
-                exit((self::$failed > 0 ? 1 : 0));
-            }
-        );
-
-        self::$initialized = true;
-    }
-
-    /**
-     *
-     */
     public static function create()
     {
         self::init();
@@ -230,6 +202,34 @@ MORE;
                 'at'       => debug_backtrace()[0],
             ]
         );
+    }
+
+    /**
+     *
+     */
+    private static function init()
+    {
+        if (self::$initialized) {
+            return;
+        }
+
+        register_shutdown_function(
+            function () {
+                echo "\n";
+                echo "1.." . self::$number . "\n";
+                echo "# tests " . self::$number . "\n";
+                echo "# pass  " . self::$passed . "\n";
+                if (self::$failed > 0) {
+                    echo "# fail  " . self::$failed . "\n\n";
+                } else {
+                    echo "\n# ok\n\n";
+                }
+
+                exit((self::$failed > 0 ? 1 : 0));
+            }
+        );
+
+        self::$initialized = true;
     }
 
     /**
