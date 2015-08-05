@@ -137,6 +137,50 @@ MORE;
     }
 
     /**
+     * @param $actual
+     * @param $expected
+     * @param null $message
+     */
+    public function equals($actual, $expected, $message = null)
+    {
+        if ($actual == $expected) {
+            $this->pass($message);
+        } else {
+            $this->fail(
+                $message,
+                [
+                    'operator' => 'equals',
+                    'expected' => $expected,
+                    'actual'   => $actual,
+                    'at'       => debug_backtrace()[0],
+                ]
+            );
+        }
+    }
+
+    /**
+     * @param $actual
+     * @param $expected
+     * @param null $message
+     */
+    public function notEquals($actual, $expected, $message = null)
+    {
+        if ($actual != $expected) {
+            $this->pass($message);
+        } else {
+            $this->fail(
+                $message,
+                [
+                    'operator' => 'notEquals',
+                    'expected' => null,
+                    'actual'   => $actual,
+                    'at'       => debug_backtrace()[0],
+                ]
+            );
+        }
+    }
+
+    /**
      * @param $func
      * @param $expected
      * @param null $message

@@ -71,3 +71,19 @@ Test::create(
         );
     }
 );
+
+Test::create(
+    "equals",
+    function(Test $test) {
+        $test->equals(1, 1, "should be good");
+        $test->equals(0, 1, "should fail");
+    }
+);
+
+Test::create(
+    "not equals",
+    function(Test $test) {
+        $test->notEquals(0, 1, "should be good");
+        $test->notEquals(1, 1, "should fail");
+    }
+);
