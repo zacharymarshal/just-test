@@ -8,7 +8,9 @@
             "email": "rankin.zachary@gmail.com"
         }
     ],
-    "require": {},
+    "require": {
+        "phpunit/php-code-coverage": "^2.2"
+    },
     "autoload": {
         "psr-4": {
             "zacharyrankin\\just_test\\": "src"

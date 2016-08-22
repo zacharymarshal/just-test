@@ -3,6 +3,7 @@ namespace zacharyrankin\just_test;
 
 use Exception;
 use InvalidArgumentException;
+use PHP_CodeCoverage;
 
 class Test
 {
@@ -23,6 +24,8 @@ class Test
      * @var bool
      */
     public static $initialized = false;
+
+    public static $coverage;
 
     /**
      *
@@ -53,7 +56,12 @@ class Test
             echo "# {$name}\n";
         }
 
+        if (!isset(self::$coverage)) {
+            self::$coverage = new PHP_CodeCoverage;
+        }
+        self::$coverage->start($name);
         call_user_func($func, new Test);
+        self::$coverage->stop();
     }
 
     /**
@@ -271,6 +279,9 @@ MORE;
                 } else {
                     echo "\n# ok\n\n";
                 }
+
+                $writer = new \PHP_CodeCoverage_Report_HTML;
+                $writer->process(self::$coverage, '/tmp/code-coverage-report');
 
                 exit((self::$failed > 0 ? 1 : 0));
             }
